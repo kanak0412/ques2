@@ -32,11 +32,9 @@
             const searchBox = document.getElementById('searchBox');
             const cafeList = document.getElementById('cafeList');
 
-            // Fetch cafes and places data from API endpoints
             fetchCafes();
             fetchPlaces();
 
-            // Fetch cafes data from API endpoint
             function fetchCafes() {
                 fetch('cafes_endpoint_url')
                     .then(response => response.json())
@@ -46,8 +44,7 @@
                     .catch(error => console.error('Error fetching cafes:', error));
             }
 
-            // Fetch places data from API endpoint
-            function fetchPlaces() {
+             function fetchPlaces() {
                 fetch('places_endpoint_url')
                     .then(response => response.json())
                     .then(data => {
@@ -56,13 +53,11 @@
                     .catch(error => console.error('Error fetching places:', error));
             }
 
-            // Render cafes based on the provided data
+            
             function renderCafes(data) {
-                // Clear previous cafe list
+                
                 cafeList.innerHTML = '';
-
-                // Loop through cafes data and generate table rows
-                data.forEach(cafe => {
+                 data.forEach(cafe => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${cafe.name}</td>
@@ -76,11 +71,9 @@
                 });
             }
 
-            // Add event listener to search box for dynamic filtering
             searchBox.addEventListener('input', function() {
                 const searchTerm = searchBox.value.trim().toLowerCase();
 
-                // Filter cafes based on search term
                 const filteredCafes = cafes.filter(cafe => cafe.name.toLowerCase().includes(searchTerm));
                 renderCafes(filteredCafes);
             });
