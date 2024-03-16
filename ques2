@@ -20,8 +20,6 @@ function findCaliforniaCafes(searchTerm) {
     ];
 
     const results = [];
-
-    // Iterate over cafes and find matching ones
     cafes.forEach(cafe => {
         if (cafe.name.toLowerCase().includes(searchTerm.toLowerCase())) {
             const place = places.find(place => place.id === cafe.place_id);
@@ -40,7 +38,5 @@ function findCaliforniaCafes(searchTerm) {
 
     return results;
 }
-
-// Example usage
 const results = findCaliforniaCafes('Avenue');
 console.log(results);
